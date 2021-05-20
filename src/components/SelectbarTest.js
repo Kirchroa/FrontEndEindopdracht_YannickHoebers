@@ -22,20 +22,23 @@ const SelectbarTest = () => {
  },[])
 
      
-     const getSelectList = (vegResponse, meatResponse, otherResponse) => {
+     const getSelectList = () => {
          const vegetableJson = vegetable.map((outer) => {
              return outer.recipes.map((inner) => {
+                console.log(inner.vegetable)
+                console.log(typeof(inner.vegetable))
                  return inner.vegetable;
              })
          });
-     
+        
          return (
              <div>
             <select>
-                {vegetableArray.map((item) => 
+                {vegetableJson.map((item) => 
                 <option>{item}</option>
                 )}
             </select>
+
          </div>
          )
      }
@@ -44,28 +47,10 @@ const SelectbarTest = () => {
 
      return (
      <div>
-      {getSelectList(vegetable, meat, other)}
+      {getSelectList()}
      </div>
  )
 }
 
 export default SelectbarTest
 
-
-/*
-const meatJson = meat.map((outer) => {
-             return outer.recipes.map((inner) => {
-                 return inner.meat;
-             })
-         });
-
-         const otherJson = other.map((outer) => {
-             return outer.recipes.map((inner) => {
-                 return inner.other;
-             })
-         });
-
-         const vegetableString = JSON.stringify(vegetableJson)
-         const vegetableFormatted = vegetableString.replace(/[\[\]\"\']+/g,'')
-         const vegetableArray = vegetableFormatted.split(",");
-*/
