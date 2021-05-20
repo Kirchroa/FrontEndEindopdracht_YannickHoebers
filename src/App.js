@@ -1,10 +1,10 @@
 import React from "react";
-import SelectBar from "./components/SelectBar";
+import SelectbarTest from "./components/SelectbarTest";
 
 const App = () => {
     return(
         <div>
-            <SelectBar />
+            <SelectbarTest />
         </div>
         
     )
