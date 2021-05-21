@@ -36,11 +36,10 @@ const SelectbarTest = () => {
         const vegetableWithoutNull = vegetablesWithNull.filter((vegetable) => {
             return vegetable !== null;
         })
-        console.log(vegetableWithoutNull)
-
+        
         return (
                 <select>
-                    {vegetableWithoutNull.map((vegetable, index) => {
+                    {vegetableWithoutNull.sort().map((vegetable, index) => {
                         return <option key={index}>{vegetable}</option>
                     })}
                 </select>
