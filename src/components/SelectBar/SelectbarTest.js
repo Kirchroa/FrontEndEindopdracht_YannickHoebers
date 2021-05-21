@@ -5,7 +5,7 @@ import React from 'react';
 
 const SelectbarTest = () => {
  //maak voor iedere keuze een apparte usestate aan
- const [RecipeData, setRecipeData] = useState([]);
+ const [recipeData, setRecipeData] = useState([]);
  const [x, setX] = useState([]);
  
 
@@ -19,6 +19,61 @@ const SelectbarTest = () => {
          console.log(error)
      })
  },[])
+
+    // [] map over data van array
+    // [] maak van een multidemensionale array een enkele
+    // [] filter null;
+    // [] map de enkele array naar jsx
+
+    const getVegetables = () => {
+        const vegetableData = recipeData.map((superObj) => {
+            return superObj.recipes.map((subObj) => {
+                return subObj.vegetable
+            })
+        })
+
+        const vegetablesWithNull = Array.prototype.concat.apply([], vegetableData);
+        const vegetableWithoutNull = vegetablesWithNull.filter((vegetable) => {
+            return vegetable !== null;
+        })
+        console.log(vegetableWithoutNull)
+
+        return (
+                <select>
+                    {vegetableWithoutNull.map((vegetable, index) => {
+                        return <option key={index}>{vegetable}</option>
+                    })}
+                </select>
+        )
+    }
+     
+     
+     return (
+     <div>
+      <section className="select-container">
+          //groente
+        <select>
+            {recipeData.map((superObj)=> {
+                return superObj.recipes.map((subObj)=> {
+                    return (
+                        <option>{subObj.vegetable}</option>
+                    )
+                })
+            })}
+        </select>
+            //vlees
+        <select>
+            
+        </select>
+            //test
+        {getVegetables()}
+      </section>
+     </div>
+ )
+}
+
+export default SelectbarTest
+
 
  /*
      // map over object to safe vegetable propperties
@@ -81,32 +136,3 @@ const SelectbarTest = () => {
          )
      }
      */
-     
-     return (
-     <div>
-      <section className="select-container">
-          //groente
-        <select>
-            {RecipeData.map((superObj)=> {
-                return superObj.recipes.map((subObj)=> {
-                    return (
-                        <option>{subObj.vegetable}</option>
-                    )
-                })
-            })}
-        </select>
-            //vlees
-        <select>
-            
-        </select>
-            //overig
-        <select>
-            
-        </select>
-      </section>
-     </div>
- )
-}
-
-export default SelectbarTest
-
