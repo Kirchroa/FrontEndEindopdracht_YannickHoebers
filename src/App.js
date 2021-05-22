@@ -1,14 +1,13 @@
 import React from "react";
-import SelectbarTest from "./components/SelectBar/SelectbarTest";
+import SelectList from "./components/optionList/selectList/SelectList";
 
 const App = () => {
     return(
         <div>
-            <SelectbarTest />
+            <SelectList />
         </div>
         
     )
 } 
-
 
 export default App;
