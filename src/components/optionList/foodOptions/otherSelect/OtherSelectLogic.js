@@ -1,4 +1,4 @@
-import ApiData from "../../../../Data/ApiData"
+import ApiData from "../../../../data/ApiData"
 
 const OtherSelectLogic = () => {
 
