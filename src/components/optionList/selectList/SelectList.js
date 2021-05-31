@@ -1,19 +1,12 @@
 import React from "react";
-import VegetableSelectList from "../foodOptions/vegetableSelect/VegetableSelectList"
-import MeatSelectList from "../foodOptions/meatSelect/MeatSelectList"
-import OtherSelectList from "../foodOptions/otherSelect/OtherSelectList"
-
-
+import GenerateRecipe from "../foodOptions/otherSelect/GenerateRecipe";
 
 const SelectList = () => {
-
-    return (
-        <div>
-            <VegetableSelectList />
-            <MeatSelectList />
-            <OtherSelectList />
-        </div>
-    )
-}
+  return (
+    <div>
+      <GenerateRecipe message="proptest" />
+    </div>
+  );
+};
 
 export default SelectList;

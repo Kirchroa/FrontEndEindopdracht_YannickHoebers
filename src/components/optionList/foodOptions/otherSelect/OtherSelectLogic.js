@@ -1,23 +1,23 @@
-import ApiData from "../../../../data/ApiData"
+import ApiData from "../../../../data/ApiData";
 
 const OtherSelectLogic = () => {
+  const { recipeData } = ApiData();
 
-   const {recipeData} = ApiData();
-
-   const otherData = recipeData.map((superObj) => {
+  const otherData = recipeData.map((superObj) => {
     return superObj.recipes.map((subObj) => {
-        return subObj.other
-    })
-})
+      return subObj.other;
+    });
+  });
 
-const otherWithNull = Array.prototype.concat.apply([], otherData);
-const otherWithoutNull = otherWithNull.filter((other) => {
+  const otherWithNull = Array.prototype.concat.apply([], otherData);
+  const otherWithoutNull = otherWithNull.filter((other) => {
     return other !== null;
-})  
-const otherselectList = otherWithoutNull.filter((value, index) => otherWithoutNull.indexOf(value) === index) 
+  });
+  const otherselectList = otherWithoutNull.filter(
+    (value, index) => otherWithoutNull.indexOf(value) === index
+  );
 
-return {otherselectList}
+  return { otherselectList };
+};
 
-}
-
-export default OtherSelectLogic
+export default OtherSelectLogic;
